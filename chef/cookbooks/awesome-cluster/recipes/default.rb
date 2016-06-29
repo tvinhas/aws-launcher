@@ -33,7 +33,7 @@ service "cassandra" do
 end
 
 execute 'cassandra_structure' do
-  command 'sleep 30 ; cqlsh cassandra1 -f /tmp/structure.cql'
+  command 'sleep 90 ; cqlsh cassandra1 -f /tmp/structure.cql'
   only_if 'cat /etc/hostname | grep cassandra1'
   not_if { File.exist?("/var/lib/cassandra/data/random") }
 end
