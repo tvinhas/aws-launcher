@@ -35,8 +35,5 @@ end
 execute 'cassandra_structure' do
   command 'sleep 30 ; cqlsh cassandra1 -f /tmp/structure.cql'
   only_if 'cat /etc/hostname | grep cassandra1'
-  action: run
-  retries 6
-  retry_delay 10
+  not_if { File.exist?("/var/lib/cassandra/data/random") }
 end
-
