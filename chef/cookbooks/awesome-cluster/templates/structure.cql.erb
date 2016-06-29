@@ -1,0 +1,9 @@
+CREATE KEYSPACE random WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+
+CREATE TABLE random.random_data (
+    id varchar,
+    type varchar,
+    user varchar,
+    PRIMARY KEY (id, type)
+);
