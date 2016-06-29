@@ -33,12 +33,10 @@ service "cassandra" do
 end
 
 execute 'cassandra_structure' do
-  command 'cqlsh cassandra1 -f /tmp/structure.cql'
+  command 'sleep 30 ; cqlsh cassandra1 -f /tmp/structure.cql'
   only_if 'cat /etc/hostname | grep cassandra1'
+  action: run
+  retries 6
+  retry_delay 10
 end
-
-
-#only for the master
-#cqlsh  172.31.29.111 -f test.cql
-#
 
