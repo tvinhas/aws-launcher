@@ -57,6 +57,7 @@ create_instance = ec2.create_instances(
 
 instanceid = create_instance[0].id
 instance = create_instance[0]
+instance.wait_until_running()
 
 # Tag instance
 client = boto3.client('ec2', **conn)
@@ -65,7 +66,6 @@ client.create_tags(
     Tags= [{"Key": "Name", "Value": "cassandra1"}]
 )
 
-instance.wait_until_running()
 instance.load()
 
 print "Created new instance with id %s" % instanceid 
@@ -96,6 +96,7 @@ create_instance = ec2.create_instances(
 
 instanceid = create_instance[0].id
 instance = create_instance[0]
+instance.wait_until_running()
 
 # Tag instance
 client = boto3.client('ec2', **conn)
@@ -104,7 +105,6 @@ client.create_tags(
     Tags= [{"Key": "Name", "Value": "cassandra2"}]
 )
 
-instance.wait_until_running()
 instance.load()
 
 print "Created new instance with id %s" % instanceid 
@@ -135,6 +135,7 @@ create_instance = ec2.create_instances(
 
 instanceid = create_instance[0].id
 instance = create_instance[0]
+instance.wait_until_running()
 
 # Tag instance
 client = boto3.client('ec2', **conn)
@@ -143,7 +144,6 @@ client.create_tags(
     Tags= [{"Key": "Name", "Value": "cassandra3"}]
 )
 
-instance.wait_until_running()
 instance.load()
 
 print "Created new instance with id %s" % instanceid 
