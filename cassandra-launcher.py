@@ -19,7 +19,7 @@ conn = {
     'region_name': 'us-east-1'
 }
 
-userdata = "#!/bin/bash \n aws s3 cp s3://tvinhas-scripts/cassandra-userdata.sh .\n bash cassandra-userdata.sh"
+userdata = "#!/bin/bash \n aws s3 cp s3://my-script-bucket/cassandra-userdata.sh .\n bash cassandra-userdata.sh"
 key = 'tvinhas'
 securitygroup = 'sg-7d256706'
 instanceprofile = 'arn:aws:iam::686787828286:instance-profile/cassandra'
