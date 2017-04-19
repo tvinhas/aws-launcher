@@ -1,6 +1,8 @@
 cassandra-cluster
 ========
 
+Python script to launch and fully configure a Cassandra cluster on AWS
+
 Important
 --------------
 
